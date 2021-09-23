@@ -1,0 +1,40 @@
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+ 
+public class lab2
+{
+	public static void main(String[] args) throws IOException
+	{
+		String keywords[] = {"auto","break","case","char","const","continue","default","do",
+				             "double","else","enum","extern","float","for","goto","if","int",
+				             "long","register","return","short","signed","sizeof","static",
+				             "struct","switch","typedef","union","unsigned","void","volatile","while"};
+		int number[] = new int[keywords.length];
+		FileInputStream iStream = new FileInputStream("C:\\Users\\28313\\Desktop\\c.txt");
+		BufferedReader BR = new BufferedReader(new InputStreamReader(iStream));
+		String str = null;
+		int total = 0;
+		int double_index = 0;
+		for(int i = 0;i < keywords.length;i++) {
+			if(keywords[i] == "double") {
+				double_index = i;
+			}
+		}
+		while((str = BR.readLine()) != null)
+		{
+			for(int i = 0;i < keywords.length;i++)
+			{
+				if(str.contains(keywords[i])) {
+					number[i]++;
+					total++;
+				}
+			}
+		}
+		total = total - number[double_index];	
+		iStream.close();
+		BR.close();
+		System.out.println("total num: "+total);
+	}
+}
