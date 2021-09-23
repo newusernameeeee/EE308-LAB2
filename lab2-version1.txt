@@ -12,7 +12,7 @@ public class lab2
 				             "long","register","return","short","signed","sizeof","static",
 				             "struct","switch","typedef","union","unsigned","void","volatile","while"};
 		int number[] = new int[keywords.length];
-		FileInputStream iStream = new FileInputStream("C:\\Users\\28313\\Desktop\\c.txt");
+		FileInputStream iStream = new FileInputStream("C:\\c.txt");
 		BufferedReader BR = new BufferedReader(new InputStreamReader(iStream));
 		String str = null;
 		int total = 0;
